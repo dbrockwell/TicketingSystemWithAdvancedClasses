@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using NLog.Web;
 
-namespace ticketsV2 {
+namespace ticketsV3 {
     public class TicketFile {
         public string filePath {get; set;}
         public List<Bug> Bug {get; set;}
