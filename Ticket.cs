@@ -18,17 +18,7 @@ namespace ticketsV2 {
         }
 
         public string entry() {
-            string peopleWatchingString = "";
-            string lastperson = peopleWatching.LastOrDefault();
-            foreach (string person in peopleWatching) {
-                if (person.Equals(lastperson)) {
-                    peopleWatchingString += person;
-                }
-                else {
-                    peopleWatchingString += person + "|";
-                }
-            }
-            return $"{ticketID},{summary},{status},{priority},{submitter},{assigned},{peopleWatchingString}";
+            return $"{ticketID},{summary},{status},{priority},{submitter},{assigned},{string.Join("|", peopleWatching)}";
         }
     }
 }
