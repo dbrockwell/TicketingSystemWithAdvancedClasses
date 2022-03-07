@@ -6,7 +6,7 @@ namespace ticketsV3 {
         public DateTime dueDate { get; set; }
 
         public override string entry(){
-            return $"{ticketID},{summary},{status},{priority},{submitter},{assigned},{string.Join("|", peopleWatching)},{projectName:MM}/{projectName:dd}/{projectName:yyyy},{dueDate}";
+            return $"{ticketID},{summary},{status},{priority},{submitter},{assigned},{string.Join("|", peopleWatching)},{projectName},{dueDate:MM}/{dueDate:dd}/{dueDate:yyyy}";
         }
     }
 }
