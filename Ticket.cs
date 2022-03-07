@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ticketsV2 {
+namespace ticketsV3 {
     public class Ticket {
         public UInt64 ticketID { get; set; }
         public string summary {get; set;}
@@ -17,7 +17,7 @@ namespace ticketsV2 {
             peopleWatching = new List<string>();
         }
 
-        public string entry() {
+        public virtual string entry() {
             return $"{ticketID},{summary},{status},{priority},{submitter},{assigned},{string.Join("|", peopleWatching)}";
         }
     }
