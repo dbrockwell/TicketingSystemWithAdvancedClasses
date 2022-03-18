@@ -23,19 +23,19 @@ namespace ticketsV3
 
                 if (choice == "1") {
                     Console.WriteLine("Bug Tickets\n");
-                    foreach(Ticket ticket in ticketFile.Bugs)
+                    foreach(Bug bug in ticketFile.Bugs)
                     {
-                        Console.WriteLine(ticket.entry());
+                        Console.WriteLine(bug.entry());
                     }
                     Console.WriteLine("Enhancement Tickets\n");
-                    foreach(Ticket ticket in ticketFile.Enhancements)
+                    foreach(Enhancement enhancement in ticketFile.Enhancements)
                     {
-                        Console.WriteLine(ticket.entry());
+                        Console.WriteLine(enhancement.entry());
                     }
                     Console.WriteLine("Task Tickets\n");
-                    foreach(Ticket ticket in ticketFile.Tasks)
+                    foreach(Task task in ticketFile.Tasks)
                     {
-                        Console.WriteLine(ticket.entry());
+                        Console.WriteLine(task.entry());
                     }
                 }
                 
