@@ -40,26 +40,38 @@ namespace ticketsV3
                 }
                 
                 if (choice == "2") {
-                    Ticket ticket = new Ticket();
-                    ticket.summary = NullCheck("Enter Ticket Summary", "summary");
-                    ticket.status = NullCheck("Enter Ticket Status", "status");
-                    ticket.priority = NullCheck("Enter Ticket Priority", "priority");
-                    ticket.submitter = NullCheck("Enter the Ticket Submitter", "submitter");
-                    ticket.assigned = NullCheck("Enter Person Assigned", "assigned");
-                    ticket.peopleWatching.Add(NullCheck("Enter Person Watching", "person watching"));
-                    string anotherWatcher;
-                    do {
-                        Console.WriteLine("Enter Another Person Watching Or Just Press 'ENTER' To Continue");
-                        anotherWatcher = Console.ReadLine();
-                        if (anotherWatcher != "") {
-                            ticket.peopleWatching.Add(anotherWatcher);
-                        }
-                    } while (anotherWatcher != "");
-                    ticketFile.AddTicket(ticket);
+                    Console.WriteLine("1) Enter a bug ticket");
+                    Console.WriteLine("2) Enter a enhancement ticket");
+                    Console.WriteLine("3) Enter a task ticket");
+                    Console.WriteLine("Enter anything else to exit");
+                    string ticketChoice = Console.ReadLine();
+                    if (ticketChoice == "1") {
+                    Bug bug = new Bug();
+                    StandardInfo(bug);
+                    bug.severity = NullCheck("Enter Ticket Severity", "severity");
+                    ticketFile.AddTicket(bug);
+                    }
                 }
             } while (choice == "1" || choice == "2");
 
             logger.Info("Program Ended");
+        }
+
+        public static void StandardInfo(Ticket ticket) {
+            ticket.summary = NullCheck("Enter Ticket Summary", "summary");
+            ticket.status = NullCheck("Enter Ticket Status", "status");
+            ticket.priority = NullCheck("Enter Ticket Priority", "priority");
+            ticket.submitter = NullCheck("Enter the Ticket Submitter", "submitter");
+            ticket.assigned = NullCheck("Enter Person Assigned", "assigned");
+            ticket.peopleWatching.Add(NullCheck("Enter Person Watching", "person watching"));
+            string anotherWatcher;
+            do {
+                Console.WriteLine("Enter Another Person Watching Or Just Press 'ENTER' To Continue");
+                anotherWatcher = Console.ReadLine();
+                if (anotherWatcher != "") {
+                    ticket.peopleWatching.Add(anotherWatcher);
+                }
+            } while (anotherWatcher != "");
         }
 
         public static string NullCheck(string question, string errorName) {
