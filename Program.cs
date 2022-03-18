@@ -60,7 +60,7 @@ namespace ticketsV3
                             try {
                                 enhancement.cost = Double.Parse(NullCheck("Enter Ticket Cost", "cost"));
                             } catch (Exception){
-                                Console.WriteLine("Not a correct number");
+                                logger.Error("Not a correct number");
                                 contineAdd = false;
                             }
                         } while (contineAdd == false);
@@ -69,7 +69,7 @@ namespace ticketsV3
                             try {
                                 enhancement.estimate = Double.Parse(NullCheck("Enter Ticket Estimate", "estimate"));
                             } catch (Exception){
-                                Console.WriteLine("Not a correct number");
+                                logger.Error("Not a correct number");
                                 contineAdd = false;
                             }
                         } while (contineAdd == false);
