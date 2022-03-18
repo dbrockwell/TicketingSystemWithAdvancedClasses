@@ -7,7 +7,7 @@ namespace ticketsV3
     class Program
     {
         private static NLog.Logger logger = NLogBuilder.ConfigureNLog(Directory.GetCurrentDirectory() + "\\nlog.config").GetCurrentClassLogger();
-        static void Main(string[] args)
+        static async void Main(string[] args)
         {
             string ticketFilePath1 = Directory.GetCurrentDirectory() + "\\tickets1.csv";
             string ticketFilePath2 = Directory.GetCurrentDirectory() + "\\tickets2.csv";
@@ -75,7 +75,24 @@ namespace ticketsV3
                         } while (contineAdd == false);
                         ticketFile.AddTicket(enhancement);
                     }
-
+                    else if (ticketChoice == "3") {
+                        Task task = new Task();
+                        StandardInfo(task);
+                        task.projectName = NullCheck("Enter Ticket Project Name", "project name");
+                        string dateEntry = NullCheck("Enter Ticket Due Date (Month/Day/Year", "due date");
+                        string[] date = dateEntry.Split("/");
+                        bool dateCheck = true;
+                        do {
+                            try {
+                                int month = Int32.Parse(date[0]);
+                                int day = Int32.Parse(date[1]);
+                                int year = Int32.Parse(date[2]);
+                            } catch (Exception) {
+                                logger.Error("Incorrect date entered");
+                                dateCheck = false;
+                            }
+                        } while(dateCheck == false);
+                    }
                 }
             } while (choice == "1" || choice == "2");
 
