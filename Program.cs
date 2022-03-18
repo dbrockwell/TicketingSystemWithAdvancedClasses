@@ -46,10 +46,27 @@ namespace ticketsV3
                     Console.WriteLine("Enter anything else to exit");
                     string ticketChoice = Console.ReadLine();
                     if (ticketChoice == "1") {
-                    Bug bug = new Bug();
-                    StandardInfo(bug);
-                    bug.severity = NullCheck("Enter Ticket Severity", "severity");
-                    ticketFile.AddTicket(bug);
+                        Bug bug = new Bug();
+                        StandardInfo(bug);
+                        bug.severity = NullCheck("Enter Ticket Severity", "severity");
+                        ticketFile.AddTicket(bug);
+                    }
+                    else if (ticketChoice == "2") {
+                        Enhancement enhancement = new Enhancement();
+                        StandardInfo(enhancement);
+                        enhancement.software = NullCheck("Enter Ticket Software", "software");
+                        try {
+                            enhancement.cost = Double.Parse(NullCheck("Enter Ticket Cost", "cost"));
+                        } catch (Exception){
+                            Console.WriteLine("Not a correct number");
+                        }
+                        enhancement.reason = NullCheck("Enter Ticket Reason", "reason");
+                        try {
+                            enhancement.estimate = Double.Parse(NullCheck("Enter Ticket Estimate", "estimate"));
+                        } catch (Exception){
+                            Console.WriteLine("Not a correct number");
+                        }
+                        ticketFile.AddTicket(enhancement);
                     }
                 }
             } while (choice == "1" || choice == "2");
