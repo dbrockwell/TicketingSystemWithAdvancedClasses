@@ -49,7 +49,7 @@ namespace ticketsV3
                         Bug bug = new Bug();
                         StandardInfo(bug);
                         bug.severity = NullCheck("Enter Ticket Severity", "severity");
-                        ticketFile.AddTicket(bug);
+                        ticketFile.AddBugTicket(bug);
                     }
                     else if (ticketChoice == "2") {
                         Enhancement enhancement = new Enhancement();
@@ -73,7 +73,7 @@ namespace ticketsV3
                                 contineAdd = false;
                             }
                         } while (contineAdd == false);
-                        ticketFile.AddTicket(enhancement);
+                        ticketFile.AddEnhancementTicket(enhancement);
                     }
                     else if (ticketChoice == "3") {
                         Task task = new Task();
@@ -92,6 +92,7 @@ namespace ticketsV3
                                 dateCheck = false;
                             }
                         } while(dateCheck == false);
+                        ticketFile.AddTaskTicket(task);
                     }
                 }
             } while (choice == "1" || choice == "2");
