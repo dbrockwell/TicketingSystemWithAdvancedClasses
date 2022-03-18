@@ -55,19 +55,27 @@ namespace ticketsV3
                         Enhancement enhancement = new Enhancement();
                         StandardInfo(enhancement);
                         enhancement.software = NullCheck("Enter Ticket Software", "software");
-                        try {
-                            enhancement.cost = Double.Parse(NullCheck("Enter Ticket Cost", "cost"));
-                        } catch (Exception){
-                            Console.WriteLine("Not a correct number");
-                        }
+                        bool contineAdd = true;
+                        do{
+                            try {
+                                enhancement.cost = Double.Parse(NullCheck("Enter Ticket Cost", "cost"));
+                            } catch (Exception){
+                                Console.WriteLine("Not a correct number");
+                                contineAdd = false;
+                            }
+                        } while (contineAdd == false);
                         enhancement.reason = NullCheck("Enter Ticket Reason", "reason");
-                        try {
-                            enhancement.estimate = Double.Parse(NullCheck("Enter Ticket Estimate", "estimate"));
-                        } catch (Exception){
-                            Console.WriteLine("Not a correct number");
-                        }
+                        do{
+                            try {
+                                enhancement.estimate = Double.Parse(NullCheck("Enter Ticket Estimate", "estimate"));
+                            } catch (Exception){
+                                Console.WriteLine("Not a correct number");
+                                contineAdd = false;
+                            }
+                        } while (contineAdd == false);
                         ticketFile.AddTicket(enhancement);
                     }
+
                 }
             } while (choice == "1" || choice == "2");
 
