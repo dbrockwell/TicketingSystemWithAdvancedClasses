@@ -22,7 +22,18 @@ namespace ticketsV3
                 choice = Console.ReadLine();
 
                 if (choice == "1") {
-                    foreach(Ticket ticket in ticketFile.Tickets)
+                    Console.WriteLine("Bug Tickets\n");
+                    foreach(Ticket ticket in ticketFile.Bugs)
+                    {
+                        Console.WriteLine(ticket.entry());
+                    }
+                    Console.WriteLine("Enhancement Tickets\n");
+                    foreach(Ticket ticket in ticketFile.Enhancements)
+                    {
+                        Console.WriteLine(ticket.entry());
+                    }
+                    Console.WriteLine("Task Tickets\n");
+                    foreach(Ticket ticket in ticketFile.Tasks)
                     {
                         Console.WriteLine(ticket.entry());
                     }
