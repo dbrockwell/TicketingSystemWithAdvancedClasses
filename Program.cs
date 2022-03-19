@@ -89,6 +89,7 @@ namespace ticketsV3
                                 int month = Int32.Parse(date[0]);
                                 int day = Int32.Parse(date[1]);
                                 int year = Int32.Parse(date[2]);
+                                task.dueDate = new DateTime (year,month,day);
                                 dateCheck = true;
                             } catch (Exception) {
                                 logger.Error("Incorrect date entered");
