@@ -95,14 +95,14 @@ namespace ticketsV3 {
             if(File.Exists(filePath1)) {
                 bug.ticketID = Bugs.Max(t => t.ticketID) + 1;
                 File.AppendAllText(filePath1, bug.Entry() + "\n");
-                logger.Info("Ticket ID {0} added", bug.ticketID);
+                logger.Info("Bug Ticket ID {0} added", bug.ticketID);
             }
             else {
                 StreamWriter ticketWrite = new StreamWriter(filePath1);
                 bug.ticketID = 1;
                 ticketWrite.Write(bug.Entry() + "\n");
                 ticketWrite.Close();
-                logger.Info("File {0} added and Ticket ID {1} added", filePath1, bug.ticketID);
+                logger.Info("File {0} added and Bug Ticket ID {1} added", filePath1, bug.ticketID);
             }
         }
 
@@ -110,14 +110,14 @@ namespace ticketsV3 {
             if(File.Exists(filePath2)) {
                 enhancement.ticketID = Enhancements.Max(t => t.ticketID) + 1;
                 File.AppendAllText(filePath2, enhancement.Entry() + "\n");
-                logger.Info("Ticket ID {0} added", enhancement.ticketID);
+                logger.Info("Enhancement Ticket ID {0} added", enhancement.ticketID);
             }
             else {
                 StreamWriter ticketWrite = new StreamWriter(filePath2);
                 enhancement.ticketID = 1;
                 ticketWrite.Write(enhancement.Entry() + "\n");
                 ticketWrite.Close();
-                logger.Info("File {0} added and Ticket ID {1} added", filePath2, enhancement.ticketID);
+                logger.Info("File {0} added and Enhancement Ticket ID {1} added", filePath2, enhancement.ticketID);
             }
         }
 
@@ -125,14 +125,14 @@ namespace ticketsV3 {
             if(File.Exists(filePath3)) {
                 task.ticketID = Tasks.Max(t => t.ticketID) + 1;
                 File.AppendAllText(filePath3, task.Entry() + "\n");
-                logger.Info("Ticket ID {0} added", task.ticketID);
+                logger.Info("Task Ticket ID {0} added", task.ticketID);
             }
             else {
                 StreamWriter ticketWrite = new StreamWriter(filePath3);
                 task.ticketID = 1;
                 ticketWrite.Write(task.Entry() + "\n");
                 ticketWrite.Close();
-                logger.Info("File {0} added and Ticket ID {1} added", filePath3, task.ticketID);
+                logger.Info("File {0} added and Task Ticket ID {1} added", filePath3, task.ticketID);
             }
         }
     }
