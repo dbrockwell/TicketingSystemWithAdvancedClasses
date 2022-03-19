@@ -25,17 +25,17 @@ namespace ticketsV3
                     Console.WriteLine("Bug Tickets");
                     foreach(Bug bug in ticketFile.Bugs)
                     {
-                        Console.WriteLine(bug.entry());
+                        Console.WriteLine(bug.Entry());
                     }
                     Console.WriteLine("Enhancement Tickets");
                     foreach(Enhancement enhancement in ticketFile.Enhancements)
                     {
-                        Console.WriteLine(enhancement.entry());
+                        Console.WriteLine(enhancement.Read());
                     }
                     Console.WriteLine("Task Tickets");
                     foreach(Task task in ticketFile.Tasks)
                     {
-                        Console.WriteLine(task.entry());
+                        Console.WriteLine(task.Read());
                     }
                 }
                 

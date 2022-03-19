@@ -17,7 +17,7 @@ namespace ticketsV3 {
             peopleWatching = new List<string>();
         }
 
-        public virtual string entry() {
+        public virtual string Entry() {
             return $"{ticketID},{summary},{status},{priority},{submitter},{assigned},{string.Join("|", peopleWatching)}";
         }
     }
