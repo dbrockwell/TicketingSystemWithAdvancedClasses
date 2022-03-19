@@ -124,7 +124,7 @@ namespace ticketsV3 {
         public void AddTaskTicket(Task task) {
             if(File.Exists(filePath3)) {
                 task.ticketID = Tasks.Max(t => t.ticketID) + 1;
-                File.AppendAllText(filePath1, task.Entry() + "\n");
+                File.AppendAllText(filePath3, task.Entry() + "\n");
                 logger.Info("Ticket ID {0} added", task.ticketID);
             }
             else {
